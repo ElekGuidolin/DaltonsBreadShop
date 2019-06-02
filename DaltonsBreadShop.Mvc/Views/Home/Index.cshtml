@@ -1,0 +1,19 @@
+﻿@model HomeViewModel
+
+<h2>@Model.Title</h2>
+
+@foreach (var bread in Model.Breads)
+{
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <div class="thumbnail">
+            <img src="@Url.Content(bread.ImageThumbinailUrl)" alt="" />
+            <div class="figure-caption">
+                <h3 class="pull-right">@bread.Price.ToString("c")</h3>
+                <h3>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@bread.Id">@bread.Name</a>
+                </h3>
+                <p>@bread.ShortDescription</p>
+            </div>
+        </div>
+    </div>
+}
